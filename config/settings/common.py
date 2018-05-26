@@ -39,6 +39,7 @@ THIRD_PARTY_APPS = (
     "pipeline",
     "rest_framework",
     "corsheaders",
+    "django_countries",
 )
 
 LOCAL_APPS = (

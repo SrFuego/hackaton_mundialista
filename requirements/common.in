@@ -1,6 +1,7 @@
 coreapi
 django < 1.12
 django-cors-headers
+django-countries
 django-crispy-forms
 django-dotenv
 django-filter
