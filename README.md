@@ -1,4 +1,6 @@
-# Django project rest template for Django 1.11 with Python 3.6.5
+# A que te gano
+
+Python environment: `3.6.5`
 
 ## Setup Project:
 
