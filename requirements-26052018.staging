@@ -31,6 +31,7 @@ pillow==5.1.0             # via django-stdimage
 pip-tools==2.0.2
 progressbar2==3.37.1      # via django-stdimage
 psycopg2-binary==2.7.4
+psycopg2==2.7.4
 pygments==2.2.0
 python-utils==2.3.0       # via progressbar2
 pytz==2018.4              # via django
