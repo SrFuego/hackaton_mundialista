@@ -1,5 +1,5 @@
 coreapi
-django
+django < 1.12
 django-cors-headers
 django-crispy-forms
 django-dotenv
