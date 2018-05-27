@@ -4,7 +4,6 @@
 
 # Django imports
 from django.db import models
-from django.utils import timezone
 
 
 # Third party apps imports
@@ -33,7 +32,7 @@ class Position(TimeStampedModel):
 class Person(TimeStampedModel):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    born_date = models.DateField(blank=True, null=True)
+    age = models.PositiveSmallIntegerField(blank=True, null=True)
 
     class Meta:
         abstract = True
@@ -45,32 +44,23 @@ class Person(TimeStampedModel):
     def full_name(self):
         return "{0}, {1}".format(self.last_name, self.first_name)
 
-    @property
-    def age(self):
-        today = timezone.now()
-        born = self.born_date
-        already_birthday = ((today.month, today.day) < (born.month, born.day))
-        return today.year - born.year - already_birthday
-
 
 class Player(Person):
-    aceleration = models.PositiveSmallIntegerField(blank=True, null=True)
+    acceleration = models.PositiveSmallIntegerField(blank=True, null=True)
     aggression = models.PositiveSmallIntegerField(blank=True, null=True)
     agility = models.PositiveSmallIntegerField(blank=True, null=True)
     balance = models.PositiveSmallIntegerField(blank=True, null=True)
     ball_control = models.PositiveSmallIntegerField(blank=True, null=True)
-    born_country = models.ForeignKey(
-        "geolocation.Country", related_name="citizens")
-    club_name = models.PositiveSmallIntegerField(blank=True, null=True)
-    name = models.CharField(max_length=75, blank=True, null=True)
-    order = models.PositiveSmallIntegerField(blank=True, null=True)
+    club_name = models.CharField(max_length=50)
+    club_logo = models.URLField(max_length=200)
+    order_fifa = models.PositiveSmallIntegerField(blank=True, null=True)
     overall = models.PositiveSmallIntegerField(blank=True, null=True)
     points = models.PositiveSmallIntegerField(blank=True, null=True)
+    potential = models.PositiveSmallIntegerField(blank=True, null=True)
     position = models.ForeignKey("Position")
-    reactions = models.PositiveSmallIntegerField(blank=True, null=True)
+    reaction = models.PositiveSmallIntegerField(blank=True, null=True)
     recover = models.PositiveSmallIntegerField(blank=True, null=True)
-    selection = models.ForeignKey(
-        "geolocation.Country", related_name="players")
+    selection = models.ForeignKey("geolocation.Country")
     stamina = models.PositiveSmallIntegerField(blank=True, null=True)
     strength = models.PositiveSmallIntegerField(blank=True, null=True)
     with_red_card = models.BooleanField(default=False)
