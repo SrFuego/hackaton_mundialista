@@ -11,7 +11,7 @@ from import_export.admin import ImportExportModelAdmin
 
 
 # Local imports
-from .models import Match, Stadium
+from .models import Groups, Match, Stadium
 from .resources import StadiumResource
 
 
@@ -22,3 +22,4 @@ class StadiumAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(Match)
+admin.site.register(Groups)

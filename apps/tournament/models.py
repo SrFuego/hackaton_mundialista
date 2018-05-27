@@ -46,3 +46,13 @@ class Match(TimeStampedModel):
 
     def __str__(self):
         return "{0} vs {1}".format(self.country_1.name, self.country_2.name)
+
+
+class Groups(TimeStampedModel):
+    name = models.CharField(max_length=5, unique=True)
+
+    class Meta:
+        verbose_name = "Grupo"
+
+    def __str__(self):
+        return self.name
