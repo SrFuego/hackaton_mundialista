@@ -17,7 +17,7 @@ from django.db import models
 class ProfileUser(models.Model):
     usuario = models.OneToOneField(User, models.CASCADE, related_name="perfil")
     dni = models.CharField(max_length=8, blank=False, null=False)
-    friends = models.ManyToManyField(User, null=True, blank=True)
+    friends = models.ManyToManyField(User, blank=True)
     direccion = models.TextField(blank=True, null=True)
 
     def __str__(self):
