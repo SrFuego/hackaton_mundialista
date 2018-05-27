@@ -75,5 +75,5 @@ class Incident(TimeStampedModel):
 
     def __str__(self):
         return '{0}-{1}'.format(
-            self.kind, self.player.name if self.player else '-'
+            self.kind, self.player.first_name if self.player else '-'
         )

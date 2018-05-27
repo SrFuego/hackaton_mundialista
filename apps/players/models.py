@@ -72,7 +72,7 @@ class Player(Person):
             self.points += get_val_recover(self.recover)
         elif kind == "yellow_card":
             self.points += get_val_card_yellow(self.aggression)
-        elif kind == "serious_misconduct":
+        elif kind == "foul":
             self.points += get_val_serious_foul(self.recover)
         elif kind == "red_card":
             self.points += -80
