@@ -76,6 +76,9 @@ class Player(Person):
             self.points += get_val_serious_foul(self.recover)
         elif kind == "red_card":
             self.points += -80
+        elif kind == "goal":
+            pass
+        return super().save()
 
     class Meta:
         verbose_name = "Jugador"

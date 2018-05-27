@@ -10,7 +10,7 @@ from rest_framework import serializers
 
 
 # Local imports
-from .models import Match, Stadium
+from .models import Incident, Match, Stadium
 
 from ..geolocation.serializers import CountryModelSerializer
 
@@ -30,3 +30,9 @@ class MatchModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Match
         fields = ("id", "country_1", "country_2", "date", "stadium", "status",)
+
+
+class IncidentModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Incident
+        fields = "__all__"

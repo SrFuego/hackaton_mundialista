@@ -68,12 +68,11 @@ class Incident(TimeStampedModel):
         ("foul", "FOUL"),
         ("yellow_card", "YELLOW_CARD"),
         ("red_card", "RED_CARD"),
-
     )
-    kind = models.CharField(max_length=10, unique=True)
+    kind = models.CharField(max_length=20)
     player = models.ForeignKey(Player, null=True, blank=True)
 
     def __str__(self):
         return '{0}-{1}'.format(
-            self.kind, self.player.name if self.player else '-'
+            self.kind, self.player.first_name if self.player else '-'
         )

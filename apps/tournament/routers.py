@@ -9,10 +9,11 @@
 
 
 # Local imports
-from .viewsets import MatchViewSet
+from .viewsets import IncidentViewSet, MatchViewSet
 
 
 # Create your routers here.
 tournament = (
     (r"match", MatchViewSet),
+    (r"incident", IncidentViewSet),
 )
