@@ -10,13 +10,13 @@ from rest_framework.viewsets import ModelViewSet
 
 
 # Local imports
-from .models import UserBet
+from .models import Player
 from .serializers import PlayerBasicModelSerializer, PlayerModelSerializer
 
 
 # Create your viewsets here.
 class UserBetViewSet(ModelViewSet):
-    queryset = UserBet.objects.all()
+    queryset = Player.objects.all()
     serializer_class = PlayerModelSerializer
     http_method_names = ["get"]
 
