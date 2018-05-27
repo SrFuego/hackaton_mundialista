@@ -8,7 +8,7 @@ from django.db import models
 
 # Third party apps imports
 from model_utils.models import TimeStampedModel
-
+from apps.players.models import Player
 
 # Local imports
 
@@ -60,3 +60,20 @@ class Group(TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+
+class Incident(TimeStampedModel):
+    KIND_CHOICES = (
+        ("goal", "GOAL"),
+        ("foul", "FOUL"),
+        ("yellow_card", "YELLOW_CARD"),
+        ("red_card", "RED_CARD"),
+
+    )
+    kind = models.CharField(max_length=10, unique=True)
+    player = models.ForeignKey(Player, null=True, blank=True)
+
+    def __str__(self):
+        return '{0}-{1}'.format(
+            self.kind, self.player.name if self.player else '-'
+        )
