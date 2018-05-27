@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User
 
 # Third party apps imports
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import (ModelSerializer, Serializer, CharField,
+                                        ValidationError)
 
 
 # Local imports
@@ -13,7 +14,11 @@ from .models import ProfileUser
 class UserSerializer(ModelSerializer):
 
     def create(self, validated_data):
+        print("///////////////")
+        print(validated_data)
+        print("///////////////")
         password = validated_data.data.get('password', '')
+        friends = validated_data.data.get('UserBetViewSet', [])
         data_profile = {
             'direccion': validated_data.data.get('direccion', ''),
             'dni': validated_data.data.get('document_number', ''),
@@ -31,7 +36,14 @@ class UserSerializer(ModelSerializer):
         user.save()
 
         data_profile['usuario'] = user
-        ProfileUser.objects.create(**data_profile)
+        profile = ProfileUser.objects.create(**data_profile)
+        """
+        for id_user in friends:
+            if id_user not in [_.id for _ in profile.friends.all()]:
+                profile.friends.add(id_user)
+        """
+        profile.save()
+
         return user
 
     class Meta:
@@ -46,3 +58,18 @@ class UserProfileSerializer(ModelSerializer):
     class Meta:
         model = ProfileUser
         fields = "__all__"
+
+
+class ChangePasswordSerializer(Serializer):
+    password = CharField(max_length=200, required=True)
+    repeat_password = CharField(max_length=200, required=True)
+
+    def validate(self, attrs):
+        password = attrs.get('password', '')
+        repeat_password = attrs.get('repeat_password', '')
+
+        if password != repeat_password:
+            raise ValidationError(
+                'Contraseñas ingresadas no coinciden')
+
+        return attrs

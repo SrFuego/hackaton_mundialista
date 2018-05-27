@@ -15,7 +15,7 @@ from .serializers import UserProfileSerializer, UserSerializer
 
 
 # Create your viewsets here.
-class UserBetViewSet(ModelViewSet):
+class UserProfileViewSet(ModelViewSet):
     queryset = ProfileUser.objects.all()
     serializer_class = UserProfileSerializer
     http_method_names = ["get", "post"]

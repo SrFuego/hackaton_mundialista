@@ -11,10 +11,12 @@ from rest_framework.routers import DefaultRouter
 from ..bet.routers import bet
 from ..geolocation.routers import geolocalization
 from ..tournament.routers import tournament
+from .viewsets import UserProfileViewSet, UserViewSet
 
 # Create your routers here.
 core = (
-    (r"user", UserBetViewSet),
+    (r"profileuser", UserProfileViewSet),
+    (r"user", UserViewSet),
 )
 
 
