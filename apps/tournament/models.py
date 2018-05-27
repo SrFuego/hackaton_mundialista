@@ -48,8 +48,12 @@ class Match(TimeStampedModel):
         return "{0} vs {1}".format(self.country_1.name, self.country_2.name)
 
 
-class Groups(TimeStampedModel):
+class Group(TimeStampedModel):
     name = models.CharField(max_length=5, unique=True)
+    winner = models.ForeignKey(
+        "geolocation.Country", related_name="winner", blank=True, null=True)
+    runnerup = models.ForeignKey(
+        "geolocation.Country", related_name="runnerup", blank=True, null=True)
 
     class Meta:
         verbose_name = "Grupo"
