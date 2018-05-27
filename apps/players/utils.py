@@ -38,5 +38,3 @@ def get_val_card_yellow(val):
 
 def get_val_serious_foul(val):
     return -10 if val <= 53 else -15
-
-

@@ -9,10 +9,12 @@ from django.utils import timezone
 
 # Third party apps imports
 from model_utils.models import TimeStampedModel
-from .utils import (get_val_card_yellow, get_val_fatigue, get_val_recover,
-                    get_val_serious_foul)
+
 
 # Local imports
+from .utils import (
+    get_val_card_yellow, get_val_fatigue, get_val_recover,
+    get_val_serious_foul)
 
 
 # Create your models here.
@@ -52,37 +54,37 @@ class Person(TimeStampedModel):
 
 
 class Player(Person):
-    name = models.CharField(max_length=75, blank=True, null=True)
-    order = models.PositiveSmallIntegerField(blank=True, null=True)
-    ball_control = models.PositiveSmallIntegerField(blank=True, null=True)
-    reactions = models.PositiveSmallIntegerField(blank=True, null=True)
-    agility = models.PositiveSmallIntegerField(blank=True, null=True)
-    aggression = models.PositiveSmallIntegerField(blank=True, null=True)
     aceleration = models.PositiveSmallIntegerField(blank=True, null=True)
+    aggression = models.PositiveSmallIntegerField(blank=True, null=True)
+    agility = models.PositiveSmallIntegerField(blank=True, null=True)
     balance = models.PositiveSmallIntegerField(blank=True, null=True)
-    club_name = models.PositiveSmallIntegerField(blank=True, null=True)
-    recover = models.PositiveSmallIntegerField(blank=True, null=True)
-    stamina = models.PositiveSmallIntegerField(blank=True, null=True)
-    strength = models.PositiveSmallIntegerField(blank=True, null=True)
-    points = models.PositiveSmallIntegerField(blank=True, null=True)
-    overall = models.PositiveSmallIntegerField(blank=True, null=True)
-    with_red_card = models.BooleanField(default=False)
+    ball_control = models.PositiveSmallIntegerField(blank=True, null=True)
     born_country = models.ForeignKey(
         "geolocation.Country", related_name="citizens")
+    club_name = models.PositiveSmallIntegerField(blank=True, null=True)
+    name = models.CharField(max_length=75, blank=True, null=True)
+    order = models.PositiveSmallIntegerField(blank=True, null=True)
+    overall = models.PositiveSmallIntegerField(blank=True, null=True)
+    points = models.PositiveSmallIntegerField(blank=True, null=True)
+    position = models.ForeignKey("Position")
+    reactions = models.PositiveSmallIntegerField(blank=True, null=True)
+    recover = models.PositiveSmallIntegerField(blank=True, null=True)
     selection = models.ForeignKey(
         "geolocation.Country", related_name="players")
-    position = models.ForeignKey("Position")
+    stamina = models.PositiveSmallIntegerField(blank=True, null=True)
+    strength = models.PositiveSmallIntegerField(blank=True, null=True)
+    with_red_card = models.BooleanField(default=False)
 
-    def set_points(self, tipo):
-        if tipo == "fatiga":
+    def set_points(self, kind):
+        if kind == "fatigue":
             self.points += get_val_fatigue(self.stamina)
-        elif tipo == "recuperacion":
+        elif kind == "recovery":
             self.points += get_val_recover(self.recover)
-        elif tipo == "tarjeta_amarilla":
+        elif kind == "yellow_card":
             self.points += get_val_card_yellow(self.aggression)
-        elif tipo == "falta_grave":
+        elif kind == "serious_misconduct":
             self.points += get_val_serious_foul(self.recover)
-        elif tipo == "tarjeta_roja":
+        elif kind == "red_card":
             self.points += -80
 
     class Meta:
