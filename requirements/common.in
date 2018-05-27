@@ -1,10 +1,10 @@
 coreapi
 django < 1.12
 django-cors-headers
-django-countries
 django-crispy-forms
 django-dotenv
 django-filter
+django-import-export
 django-material
 django-model-utils
 django-pipeline
@@ -12,7 +12,7 @@ django-stdimage
 djangorestframework
 markdown
 pip-tools
-psycopg2-binary
 psycopg2
+psycopg2-binary
 pygments
 unipath

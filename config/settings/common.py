@@ -39,11 +39,14 @@ THIRD_PARTY_APPS = (
     "pipeline",
     "rest_framework",
     "corsheaders",
-    "django_countries",
+    "django_filters",
+    "import_export",
 )
 
 LOCAL_APPS = (
     "apps.core",
+    "apps.geolocation",
+    "apps.players",
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -143,7 +146,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 # Django Rest Framework Settings
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAdminUser",),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
     "DEFAULT_FILTER_BACKENDS": (
         "django_filters.rest_framework.DjangoFilterBackend",)
 }
