@@ -9,9 +9,10 @@
 
 
 # Local imports
+from .viewsets import MatchViewSet
 
 
 # Create your routers here.
-# router_list = (
-#     (r"model", ModelViewSet),
-# )
+tournament = (
+    (r"match", MatchViewSet),
+)
