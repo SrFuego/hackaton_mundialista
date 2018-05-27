@@ -28,4 +28,4 @@ class UserBetModelSerializer(ModelSerializer):
 
     class Meta:
         model = UserBet
-        fields = ('all_user',)
+        fields = ('all_user', )

@@ -14,6 +14,7 @@ from rest_framework.routers import DefaultRouter
 from ..bet.routers import bet
 from ..geolocation.routers import geolocalization
 from ..tournament.routers import tournament
+from ..players.routers import players
 from .viewsets import UserProfileViewSet, UserViewSet
 
 
@@ -23,7 +24,7 @@ core = (
     (r"user", UserViewSet),
 )
 
-routers_tuples = (bet, geolocalization, tournament, core)
+routers_tuples = (bet, geolocalization, tournament, core, players)
 
 routers_lists = sum(
     [list(router_tuple) for router_tuple in routers_tuples], [])
