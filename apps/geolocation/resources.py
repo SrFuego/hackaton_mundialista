@@ -29,12 +29,7 @@ class CountryResource(ModelResource):
         i = 0
         last = dataset.height
         aux = None
-
-        print("===========COSOS DE SU COSITO================")
-
         continent_index = dataset.headers.index("continent")
-
-        print(continent_index)
 
         while i < last:
             aux = list(dataset.lpop())

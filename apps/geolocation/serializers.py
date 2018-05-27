@@ -26,4 +26,4 @@ class CountryModelSerializer(ModelSerializer):
 
     class Meta:
         model = Country
-        fields = ("code", "name", "continent",)
+        fields = ("code", "name", "continent", "image",)
