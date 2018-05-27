@@ -18,10 +18,13 @@ from .serializers import ContinentModelSerializer, CountryModelSerializer
 class ContinentViewSet(ModelViewSet):
     queryset = Continent.objects.all()
     serializer_class = ContinentModelSerializer
-    filter_fields = ("code",)
+    lookup_field = "code"
+    http_method_names = ["get"]
 
 
 class CountryViewSet(ModelViewSet):
     queryset = Country.objects.all()
     serializer_class = CountryModelSerializer
-    filter_fields = ("code", "continent")
+    lookup_field = "code"
+    filter_fields = ("continent",)
+    http_method_names = ["get"]

@@ -18,7 +18,7 @@ class ContinentModelSerializer(ModelSerializer):
 
     class Meta:
         model = Continent
-        fields = ("id", "code", "name",)
+        fields = ("code", "name",)
 
 
 class CountryModelSerializer(ModelSerializer):
@@ -26,4 +26,4 @@ class CountryModelSerializer(ModelSerializer):
 
     class Meta:
         model = Country
-        fields = ("id", "code", "name", "continent",)
+        fields = ("code", "name", "continent",)
