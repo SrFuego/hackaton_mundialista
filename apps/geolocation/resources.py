@@ -37,7 +37,7 @@ class CountryResource(ModelResource):
                 aux[continent_index] = Continent.objects.get(
                     code=aux[continent_index]).id
             except Continent.DoesNotExist:
-                print("no existe continente para: ", aux["name"])
+                print("no existe continente para: ", aux[continent_index])
 
             dataset.rpush(tuple(aux))
             i += 1
