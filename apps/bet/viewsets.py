@@ -30,4 +30,4 @@ class UserBetViewSet(ModelViewSet):
             if privacy == "privado":
                 privacity_filters["user"] = self.request.user
             return queryset.filter(**privacity_filters)
-        return queryset.none()
+        return queryset
