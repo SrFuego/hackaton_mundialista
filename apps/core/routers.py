@@ -1,3 +1,4 @@
+# apps/core/routers.py
 # Python imports
 
 
@@ -7,20 +8,22 @@
 # Third party apps imports
 from rest_framework.routers import DefaultRouter
 
+
 # Local imports
+from .viewsets import UserBetViewSet
+
 from ..bet.routers import bet
 from ..geolocation.routers import geolocalization
 from ..tournament.routers import tournament
+
 
 # Create your routers here.
 core = (
     (r"user", UserBetViewSet),
 )
 
-
 routers_tuples = (bet, geolocalization, tournament, core)
 
-# Create your routers here.
 routers_lists = sum(
     [list(router_tuple) for router_tuple in routers_tuples], [])
 

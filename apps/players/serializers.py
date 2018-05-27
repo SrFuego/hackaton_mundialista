@@ -28,10 +28,9 @@ class PositionModelSerializer(ModelSerializer):
         fields = "__all__"
 
 
-class PlayebasicrModelSerializer(ModelSerializer):
+class PlayerBasicModelSerializer(ModelSerializer):
     position = PositionModelSerializer(source="position", read_only=True)
 
     class Meta:
         model = Player
-        fields = ('ṕoints', 'name', 'position')
-
+        fields = ("points", "name", "position")
