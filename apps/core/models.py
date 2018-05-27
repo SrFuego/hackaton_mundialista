@@ -22,7 +22,7 @@ class ProfileUser(models.Model):
     direccion = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return self.usuario.username
+        return self.usuario.username if self.usuario else '-'
 
 
 class Confirmed(TimeStampedModel):
