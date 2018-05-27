@@ -26,7 +26,7 @@ class UserProfileViewSet(ModelViewSet):
     def perform_create(self, serializer):
         validated_data = self.request.data
         password = validated_data.get('password', '')
-        #friends = validated_data.get('UserBetViewSet', [])
+
         data_profile = {
             "direccion": validated_data.get("direccion", ""),
             "dni": validated_data.get("dni", "")

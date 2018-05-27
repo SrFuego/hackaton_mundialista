@@ -17,7 +17,7 @@ def mailing(email, user):
     template = 'mailing/emil_content.html'
 
     hash_send = get_random_string(length=32)
-    Recover.objects.create(
+    Confirmed.objects.create(
         email=email,
         hash_time=hash_send
     )

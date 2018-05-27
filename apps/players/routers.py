@@ -9,9 +9,9 @@
 
 
 # Local imports
-
+from .viewsets import PlayeretViewSet
 
 # Create your routers here.
-# router_list = (
-#     (r"model", ModelViewSet),
-# )
+players = (
+     (r"player", PlayeretViewSet),
+)
