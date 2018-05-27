@@ -11,15 +11,19 @@ from import_export.admin import ImportExportModelAdmin
 
 
 # Local imports
-from .models import Groups, Match, Stadium
-from .resources import StadiumResource
+from .models import Group, Match, Stadium
+from .resources import MatchResource, StadiumResource
 
 
 # Register your models here.
+@admin.register(Match)
+class MatchAdmin(ImportExportModelAdmin):
+    resource_class = MatchResource
+
+
 @admin.register(Stadium)
 class StadiumAdmin(ImportExportModelAdmin):
     resource_class = StadiumResource
 
 
-admin.site.register(Match)
-admin.site.register(Groups)
+admin.site.register(Group)

@@ -35,7 +35,7 @@ class Continent(Iso):
 class Country(Iso):
     continent = models.ForeignKey("Continent")
     image = models.URLField(max_length=200)
-    group = models.ForeignKey("tournament.Groups", blank=True, null=True)
+    group = models.ForeignKey("tournament.Group", blank=True, null=True)
 
     class Meta:
         verbose_name = "País"
