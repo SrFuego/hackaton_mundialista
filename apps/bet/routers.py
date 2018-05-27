@@ -13,6 +13,6 @@ from .viewsets import UserBetViewSet
 
 
 # Create your routers here.
-userbet = (
+bet = (
     (r"userbet", UserBetViewSet),
 )

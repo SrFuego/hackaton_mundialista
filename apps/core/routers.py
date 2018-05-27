@@ -8,11 +8,15 @@
 from rest_framework.routers import DefaultRouter
 
 # Local imports
+from ..bet.routers import bet
 from ..geolocation.routers import geolocalization
-from ..bet.routers import userbet
+from ..tournament.routers import tournament
 
 # Create your routers here.
-routers_tuples = (geolocalization, userbet)
+routers_tuples = (bet, geolocalization, tournament,)
+
+
+# Create your routers here.
 routers_lists = sum(
     [list(router_tuple) for router_tuple in routers_tuples], [])
 
