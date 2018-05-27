@@ -33,4 +33,4 @@ class PlayerBasicModelSerializer(ModelSerializer):
 
     class Meta:
         model = Player
-        fields = ("points", "name", "position")
+        fields = ("points", "first_name", "last_name", "position")
