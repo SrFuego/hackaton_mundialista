@@ -25,7 +25,7 @@ class PlayeretViewSet(ModelViewSet):
         queryset = super(PlayeretViewSet, self).get_queryset()
         if name:
             return queryset.filter(
-               Q(first_name__icontains=name) | Q(last_name__icontains=name)
+               Q(first_name__iregex=name) | Q(last_name__iregex=name)
             )
 
         return queryset
