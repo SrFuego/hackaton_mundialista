@@ -1,4 +1,4 @@
-# apps/bet/admin.py
+# apps/bet/tests/test_serializers.py
 # Python imports
 
 
@@ -11,4 +11,4 @@
 # Local imports
 
 
-# Register your models here.
+# Create your serializer tests here.

@@ -18,4 +18,4 @@ class UserBetModelSerializer(ModelSerializer):
 
     class Meta:
         model = UserBet
-        fields = '__all__'
+        fields = "__all__"

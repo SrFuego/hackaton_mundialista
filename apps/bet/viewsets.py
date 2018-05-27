@@ -21,17 +21,14 @@ class UserBetViewSet(ModelViewSet):
     http_method_names = ["get", "post"]
 
     def get_queryset(self):
-        privacy = self.request.query_params.get('privacy')
+        privacy = self.request.query_params.get("privacy")
         queryset = super(UserBetViewSet, self).get_queryset()
         if privacy:
             privacity_filters = {
-                'privacity_status': privacy,
-                'is_active': True
-            }
-            if privacy == 'privado':
-                privacity_filters['user'] = self.request.user
-
+                "privacity_status": privacy,
+                "is_active": True}
+            if privacy == "privado":
+                privacity_filters["user"] = self.request.user
             return queryset.filter(**privacity_filters)
-
         return queryset.none()
 

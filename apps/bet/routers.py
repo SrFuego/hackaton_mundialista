@@ -1,4 +1,4 @@
-# apps/geolocation/routers.py
+# apps/bet/routers.py
 # Python imports
 
 
