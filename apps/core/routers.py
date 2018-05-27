@@ -14,7 +14,6 @@ from rest_framework.routers import DefaultRouter
 from ..bet.routers import bet
 from ..geolocation.routers import geolocalization
 from ..tournament.routers import tournament
-from ..tournament.routers import players
 from .viewsets import UserProfileViewSet, UserViewSet
 
 
