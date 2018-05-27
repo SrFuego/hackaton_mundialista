@@ -1,20 +1,9 @@
+<<<<<<< HEAD
 # A que te gano
 
 Python environment: `3.6.5`
+=======
+# Race Against The Machine
+>>>>>>> 3fd28cd8aacdcd7588d4b1827c35aa1c6f20402c
 
-## Setup Project:
-
-- Configure the `.env` file with your project variables
-- Set `ENVIRONMENT_MODULE` in `.env` file, alternatives are: `develop`, `staging` and `production`.
-
-## Dependencies:
-
-#### Common.in:
-
-1. psycopg2-binary
-    - Install `postgresql` on your system
-
-#### Dev.in:
-
-1. pygraphviz
-    - Install `graphviz` on your system
+Sistema de apuestas con soporte para toma de desiciones inteligentes
