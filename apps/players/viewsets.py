@@ -21,7 +21,7 @@ class PlayeretViewSet(ModelViewSet):
     http_method_names = ["get"]
 
     def get_queryset(self):
-        name = self.request.query_params('name')
+        name = self.request.query_params.get('name')
         queryset = super(PlayeretViewSet, self).get_queryset()
         if name:
             return queryset.filter(
