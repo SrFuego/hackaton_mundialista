@@ -11,11 +11,16 @@ from import_export.admin import ImportExportModelAdmin
 
 
 # Local imports
-from .models import Position
-from .resources import PositionResource
+from .models import Player, Position
+from .resources import PlayerResource, PositionResource
 
 
 # Register your models here.
+@admin.register(Player)
+class PlayerAdmin(ImportExportModelAdmin):
+    resource_class = PlayerResource
+
+
 @admin.register(Position)
 class PositionAdmin(ImportExportModelAdmin):
     resource_class = PositionResource
