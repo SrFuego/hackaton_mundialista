@@ -15,6 +15,18 @@ from model_utils.models import TimeStampedModel
 
 
 # Create your models here.
+class Position(TimeStampedModel):
+    name = models.CharField(max_length=50)
+    code = models.CharField(max_length=5)
+
+    class Meta:
+        verbose_name = "Posición"
+        verbose_name_plural = "Posiciones"
+
+    def __str__(self):
+        return self.name
+
+
 class Person(TimeStampedModel):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -44,6 +56,7 @@ class Player(Person):
         "geolocation.Country", related_name="citizens")
     selection = models.ForeignKey(
         "geolocation.Country", related_name="players")
+    position = models.ForeignKey("Position")
 
     class Meta:
         verbose_name = "Jugador"
@@ -53,7 +66,6 @@ class Player(Person):
 class TechnicalDirector(Person):
     born_country = models.ForeignKey(
         "geolocation.Country", related_name="technical_director")
-    # selection = models.ForeignKey()
     selection = models.OneToOneField("geolocation.Country")
 
     class Meta:

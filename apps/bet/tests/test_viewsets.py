@@ -1,4 +1,4 @@
-# apps/bet/admin.py
+# apps/tournament/tests/test_viewsets.py
 # Python imports
 
 
@@ -11,4 +11,4 @@
 # Local imports
 
 
-# Register your models here.
+# Create your viewset tests here.

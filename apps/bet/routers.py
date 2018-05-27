@@ -1,4 +1,4 @@
-# apps/geolocation/routers.py
+# apps/bet/routers.py
 # Python imports
 
 
@@ -13,6 +13,6 @@ from .viewsets import UserBetViewSet
 
 
 # Create your routers here.
-userbet = (
+bet = (
     (r"userbet", UserBetViewSet),
 )
