@@ -31,4 +31,3 @@ class UserBetViewSet(ModelViewSet):
                 privacity_filters["user"] = self.request.user
             return queryset.filter(**privacity_filters)
         return queryset.none()
-
