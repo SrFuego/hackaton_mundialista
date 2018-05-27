@@ -20,7 +20,7 @@ class UserBetViewSet(ModelViewSet):
     serializer_class = UserBetModelSerializer
     http_method_names = ["get", "post"]
 
-    def get_serializer_class(self):
+    def get_queryset(self):
         privacy = self.request.query_params.get("privacy")
         queryset = super(UserBetViewSet, self).get_queryset()
         if privacy:

@@ -13,8 +13,12 @@ from ..geolocation.routers import geolocalization
 from ..tournament.routers import tournament
 
 # Create your routers here.
-routers_tuples = (bet, geolocalization, tournament,)
+core = (
+    (r"user", UserBetViewSet),
+)
 
+
+routers_tuples = (bet, geolocalization, tournament, core)
 
 # Create your routers here.
 routers_lists = sum(
