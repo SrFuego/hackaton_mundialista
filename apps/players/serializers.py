@@ -29,7 +29,7 @@ class PositionModelSerializer(ModelSerializer):
 
 
 class PlayerBasicModelSerializer(ModelSerializer):
-    position = PositionModelSerializer(source="position", read_only=True)
+    position = PositionModelSerializer(read_only=True)
 
     class Meta:
         model = Player
