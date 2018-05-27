@@ -9,7 +9,8 @@ from django.utils import timezone
 
 # Third party apps imports
 from model_utils.models import TimeStampedModel
-
+from .utils import (get_val_card_yellow, get_val_fatigue, get_val_recover,
+                    get_val_serious_foul)
 
 # Local imports
 
@@ -51,12 +52,38 @@ class Person(TimeStampedModel):
 
 
 class Player(Person):
+    name = models.CharField(max_length=75, blank=True, null=True)
+    order = models.PositiveSmallIntegerField(blank=True, null=True)
     ball_control = models.PositiveSmallIntegerField(blank=True, null=True)
+    reactions = models.PositiveSmallIntegerField(blank=True, null=True)
+    agility = models.PositiveSmallIntegerField(blank=True, null=True)
+    aggression = models.PositiveSmallIntegerField(blank=True, null=True)
+    aceleration = models.PositiveSmallIntegerField(blank=True, null=True)
+    balance = models.PositiveSmallIntegerField(blank=True, null=True)
+    club_name = models.PositiveSmallIntegerField(blank=True, null=True)
+    recover = models.PositiveSmallIntegerField(blank=True, null=True)
+    stamina = models.PositiveSmallIntegerField(blank=True, null=True)
+    strength = models.PositiveSmallIntegerField(blank=True, null=True)
+    points = models.PositiveSmallIntegerField(blank=True, null=True)
+    overall = models.PositiveSmallIntegerField(blank=True, null=True)
+    with_red_card = models.BooleanField(default=False)
     born_country = models.ForeignKey(
         "geolocation.Country", related_name="citizens")
     selection = models.ForeignKey(
         "geolocation.Country", related_name="players")
     position = models.ForeignKey("Position")
+
+    def set_points(self, tipo):
+        if tipo == "fatiga":
+            self.points += get_val_fatigue(self.stamina)
+        elif tipo == "recuperacion":
+            self.points += get_val_recover(self.recover)
+        elif tipo == "tarjeta_amarilla":
+            self.points += get_val_card_yellow(self.aggression)
+        elif tipo == "falta_grave":
+            self.points += get_val_serious_foul(self.recover)
+        elif tipo == "tarjeta_roja":
+            self.points += -80
 
     class Meta:
         verbose_name = "Jugador"

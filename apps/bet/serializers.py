@@ -1,4 +1,4 @@
-# apps/bet/serializers.py
+# apps/geolocation/serializers.py
 # Python imports
 
 
@@ -18,4 +18,4 @@ class UserBetModelSerializer(ModelSerializer):
 
     class Meta:
         model = UserBet
-        fields = "__all__"
+        fields = '__all_'
